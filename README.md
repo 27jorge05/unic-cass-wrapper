@@ -1,68 +1,102 @@
 [![Librelane Digital Flow (UNIC-CASS)](https://github.com/unic-cass/unic-cass-wrapper/actions/workflows/digital-flow.yaml/badge.svg?branch=main&event=push)](https://github.com/unic-cass/unic-cass-wrapper/actions/workflows/digital-flow.yaml)
 
-# UNIC-CASS-WRAPPER
-
-**Low-Power PWM Digital Controller integrated into UNIC-CASS Digital ASIC Flow**
-
----
-
-## 📌 About
-
-This repository contains a **Pulse Width Modulation (PWM) digital controller** designed to be integrated in the UNIC-CASS digital ASIC design training and mock tapeout flow.
-
-The project is structured to:
-
-- Synthesize a custom RTL design
-- Execute place & route with open-source tools
-- Generate power/timing reports
-- Produce layout results using the LibreLane and OpenROAD digital flow
-
-This project demonstrates how a user-defined digital block (PWM) can be incorporated within the **UNIC-CASS open ASIC design methodology**.
-
-UNIC-CASS official documentation and training site: https://unic-cass.github.io/ :contentReference[oaicite:1]{index=1}
+# UNIC-CASS Mock Tapeout Project  
+## Digital Design Team Repository
 
 ---
 
-## 📋 Key Features
+## 1. Project Overview
 
-- RTL-to-GDSII flow for digital design  
-- Uses **LibreLane** for automated synthesis and physical implementation  
-- Fully reproducible with **Docker**  
-- Handles power distribution (PDN), timing, and layout checks  
-- Example PWM controller implementation  
+This repository contains the complete digital design developed as part of the **UNIC-CASS 2025 Mock Tapeout Milestone**.  
+The project demonstrates the integration of a user-designed digital block into the **UNIC-CASS wrapper flow**, following the required ASIC implementation methodology.
+
+The objective of this repository is to provide:
+
+- RTL design sources  
+- Testbenches  
+- Physical design flow execution  
+- Layout generation  
+- Evidence of pad ring integration awareness  
+
+All design steps have been performed using the **UNIC-CASS Digital Flow (LibreLane + OpenROAD)** within the provided Docker-based environment.
 
 ---
 
-## 📁 Repository Structure
+## 2. Compliance with Mock Tapeout Requirements
+
+This repository satisfies the official instructions for Digital Design Teams:
+
+### 2.1 Repository Contents
+
+The repository includes:
+
+- Digital RTL design files  
+- Simulation testbenches  
+- Synthesis and implementation flow configuration  
+- Layout results  
+- Wrapper integration structure required by UNIC-CASS  
+
+The directory organization follows the format specified in the UNIC-CASS wrapper repository:  
+https://github.com/unic-cass/unic-cass-wrapper
+
+---
+
+### 2.2 Pad Ring Integration Awareness
+
+The team has executed design steps demonstrating understanding of integration into a pad ring. These include:
+
+- Running the UNIC-CASS digital implementation flow  
+- Using the provided wrapper structure  
+- Generating layout results compatible with wrapper-level integration  
+- Producing implementation outputs that consider power, ground, and I/O structure required for chip-level assembly  
+
+A detailed description of these steps is documented in the **Mock Tapeout Report**, provided separately as required.
+
+---
+
+### 2.3 Mock Tapeout Report
+
+The design team has prepared a **Mock Tapeout Report** that explains:
+
+- Design purpose and architecture  
+- Flow execution steps  
+- Integration considerations  
+- Results obtained from the physical design flow  
+
+The report link is submitted through the official Mock Tapeout Form.
+
+---
+
+## 3. Repository Structure
 
 | Path | Description |
 |------|-------------|
-| `unic_cass_wrapper_user_project/` | Top-level user project integration and PWM RTL |
-| `librelane/` | Digital implementation flow (OpenROAD, P&R scripts) |
-| `IHP-Open-PDK/` | PDK for IHP SG13G2 technology |
-| `.github/workflows/` | CI workflows for digital design |
-| `Makefile` | Flow automation script |
-| `docs/` | Supplementary documentation |
+| `unic_cass_wrapper_user_project/` | User digital design integrated into the UNIC-CASS wrapper |
+| `librelane/` | Digital ASIC implementation flow (OpenROAD-based) |
+| `IHP-Open-PDK/` | Process Design Kit for IHP SG13G2 |
+| `docs/` | Supporting documentation |
+| `Makefile` | Flow automation |
+| `.github/workflows/` | Continuous integration for digital flow |
 
 ---
 
-## 🚀 Prerequisites
+## 4. Tools and Flow
 
-You need the following installed on your system:
+This project uses the UNIC-CASS open digital ASIC toolchain:
 
-- **Docker** (20.10+ recommended)  
-- **Make** (GNU Make)  
-- **Git**  
-- **X11 server (for GUI support inside containers)**  
+- LibreLane digital flow  
+- OpenROAD physical design  
+- IHP SG13G2 PDK  
+- Docker-based reproducible environment  
 
-These tools allow running the digital flow reproducibly in a containerized environment. :contentReference[oaicite:2]{index=2}
+All synthesis, placement, routing, and analysis steps were executed inside the official UNIC-CASS container environment.
 
 ---
 
-## 🏁 Getting Started
+## 5. Running the Project
 
-### 1️⃣ Clone the repository
+### 5.1 Clone the Repository
 
 ```bash
-git clone https://github.com/27jorge05/unic-cass-wrapper.git --recurse-submodules
+git clone --recurse-submodules https://github.com/27jorge05/unic-cass-wrapper.git
 cd unic-cass-wrapper
