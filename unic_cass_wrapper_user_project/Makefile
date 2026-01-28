@@ -22,7 +22,7 @@ else
 $(designs): export current_design=$@
 $(designs):
 	# Run librelane to generate the layout
-	nix-shell --pure $(LIBRELANE_DIR) --run "PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) librelane --run-tag $(TAG) --overwrite --manual-pdk $(current_design)/config.json"
+	nix-shell --pure --option filter-syscalls false $(LIBRELANE_DIR) --run "PDK_ROOT=$(PDK_ROOT) PDK=$(PDK) librelane --run-tag $(TAG) --overwrite --manual-pdk $(current_design)/config.json"
 	# copy final results to top directory
 	rm -rf $(current_design)/final
 	cp -r $(current_design)/runs/$(TAG)/final $(current_design)/final
